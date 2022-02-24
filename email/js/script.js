@@ -1,19 +1,37 @@
-const btnSend = document.getElementById('send');
-let inputEmail = document.getElementById('email');
+// EMAIL GENERATOR
 
-btnSend.addEventListener('click', function() {
-	let emailValue = inputEmail.value;
-	console.log(emailValue);
-});
+let studentsList = document.getElementById('classe56').innerText.toLowerCase();
+studentsList = studentsList.replace('ò', 'o');
+studentsList = studentsList.split(';');
+let studentEmails = [];
 
-let studentList = document.getElementById('classe56').innerText.toLowerCase();
-studentList = studentList.split(';');
-console.dir(studentList);
-let studentEmail = [];
-
-for (let i = 0; i < studentList.length; i++) {
-	studentList[i] = studentList[i].split(',');
-	studentEmail.push(studentList[i][0].charAt(0) + '.' + studentList[i][1].replace(/\s/g, '') + '@boolean.careers')
+for (let i = 0; i < studentsList.length; i++) {
+	studentsList[i] = studentsList[i].split(',');
+	studentEmails.push(studentsList[i][0].charAt(0) + '.' + studentsList[i][1].replace(/\s/g, '') + '@boolean.careers')
 }
 
-console.dir(studentEmail);
+//EMAIL CHECKER
+
+const btnSend = document.getElementById('send');
+let email = document.getElementById('email');
+
+btnSend.addEventListener('click', function() {
+	let emailExist = false;
+	
+	for (let i = 0; i < studentEmails.length && !emailExist; i++) {
+		
+		if (email.value == studentEmails[i]) {
+			emailExist = true;
+		}
+	}
+	
+	let check = document.querySelector('.check');
+	
+	if (emailExist) {
+		check.style = 'color: green; font-size: 20px;';
+		check.innerHTML = 'La tua mail è presente a sistema!'
+	} else {
+		check.style = 'color: red; font-size: 20px;';
+		check.innerHTML = 'La tua mail non è presente a sistema oppure hai sbagliato a digitare, ricontrolla e riprova'
+	}
+});
