@@ -2,8 +2,20 @@ let btnDiceRoller = document.getElementById('dice-roller');
 let body = document.querySelector('body');
 
 btnDiceRoller.addEventListener('click', function() {
+
 	let userDice = Math.ceil(Math.random() * 6);
-	console.log(userDice);
+	// console.log('userDice: ' + userDice);
+
+	let cpuDice = Math.ceil(Math.random() * 6);
+	// console.log('cpuDice: ' + cpuDice);
+
+	if (userDice < cpuDice) {
+		console.log('hai perso');
+	} else if (userDice > cpuDice) {
+		console.log('hai vinto');
+	} else {
+		console.log('hai pareggiato');
+	}
 });
 
 
@@ -16,6 +28,7 @@ btnDiceRoller.addEventListener('click', function() {
 // let dice4 = 0;
 // let dice5 = 0;
 // let dice6 = 0;
+// let somethingElse = 0;
 
 // btnDiceRoller.addEventListener('click', function() {
 	
@@ -40,6 +53,8 @@ btnDiceRoller.addEventListener('click', function() {
 // 			case 6:
 // 				dice6++;
 // 				break;
+// 			default:
+// 				somethingElse++;
 // 		}
 
 // 	}
@@ -50,5 +65,5 @@ btnDiceRoller.addEventListener('click', function() {
 // 	console.log(dice4);
 // 	console.log(dice5);
 // 	console.log(dice6);
+// 	console.log('errors ' + somethingElse);
 // });
-
