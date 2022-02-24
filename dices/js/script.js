@@ -1,23 +1,42 @@
 let btnDiceRoller = document.getElementById('dice-roller');
-let body = document.querySelector('body');
+let aftermath = document.querySelector('.aftermath');
 
 btnDiceRoller.addEventListener('click', function() {
 
 	let userDice = Math.ceil(Math.random() * 6);
-	// console.log('userDice: ' + userDice);
-
 	let cpuDice = Math.ceil(Math.random() * 6);
-	// console.log('cpuDice: ' + cpuDice);
+	let resultStr;
+	let resultColor;
 
 	if (userDice < cpuDice) {
-		console.log('hai perso');
+		resultStr = 'Hai perso';
+		resultColor = 'red';
 	} else if (userDice > cpuDice) {
-		console.log('hai vinto');
+		resultStr = 'Hai vinto';
+		resultColor = 'green';
 	} else {
-		console.log('hai pareggiato');
+		resultStr = 'Avete pareggiato';
+		resultColor = 'blue';
 	}
+	
+	aftermath.innerHTML = `
+	<div class="user-dice">
+		Il tuo dado: <span style = "font-size: 30px">&#${userDice + 9855}</span>;
+	</div>
+	<div class="cpu-dice">
+		Il dado del computer: <span style = "font-size: 30px">&#${cpuDice + 9855}</span>;
+	</div>
+	<div class="result" style="color: ${resultColor}; font-size: 30px">${resultStr}</div>
+	`
 });
 
+
+// 1	⚀	&#9856;	"&#" + ( 9855 + 1 ) + ";"
+// 2	⚁	&#9857;	"&#" + ( 9855 + 2 ) + ";"
+// 3	⚂	&#9858;	"&#" + ( 9855 + 3 ) + ";"
+// 4	⚃	&#9859;	"&#" + ( 9855 + 4 ) + ";"
+// 5	⚄	&#9860;	"&#" + ( 9855 + 5 ) + ";"
+// 6	⚅	&#9861;	"&#" + ( 9855 + 6 ) + ";"
 
 
 
