@@ -21,15 +21,14 @@ btnDiceRoller.addEventListener('click', function() {
 	
 	aftermath.innerHTML = `
 	<div class="user-dice">
-		Il tuo dado: <span style = "font-size: 30px">&#${userDice + 9855}</span>;
+		Il tuo dado: <span style = "font-size: 30px">&#${userDice + 9855}</span>
 	</div>
 	<div class="cpu-dice">
-		Il dado del computer: <span style = "font-size: 30px">&#${cpuDice + 9855}</span>;
+		Il dado del computer: <span style = "font-size: 30px">&#${cpuDice + 9855}</span>
 	</div>
 	<div class="result" style="color: ${resultColor}; font-size: 30px">${resultStr}</div>
 	`
 });
-
 
 // 1	⚀	&#9856;	"&#" + ( 9855 + 1 ) + ";"
 // 2	⚁	&#9857;	"&#" + ( 9855 + 2 ) + ";"
@@ -41,17 +40,27 @@ btnDiceRoller.addEventListener('click', function() {
 
 
 // LAW OF LARGE NUMBERS TEST
-// let dice1 = 0;
-// let dice2 = 0;
-// let dice3 = 0;
-// let dice4 = 0;
-// let dice5 = 0;
-// let dice6 = 0;
-// let somethingElse = 0;
+// let btnDiceRoller = document.getElementById('dice-roller');
+
+// let dice1;
+// let dice2;
+// let dice3;
+// let dice4;
+// let dice5;
+// let dice6;
+// let somethingElse;
 
 // btnDiceRoller.addEventListener('click', function() {
+
+// 	dice1 = 0;
+// 	dice2 = 0;
+// 	dice3 = 0;
+// 	dice4 = 0;
+// 	dice5 = 0;
+// 	dice6 = 0;
+// 	somethingElse = 0;
 	
-// 	for (let i = 0; i < 100000; i++) {
+// 	for (let i = 0; i < 1000000; i++) {
 // 		let userDice = Math.ceil(Math.random() * 6);
 // 		switch (userDice) {
 // 			case 1:
@@ -84,5 +93,5 @@ btnDiceRoller.addEventListener('click', function() {
 // 	console.log(dice4);
 // 	console.log(dice5);
 // 	console.log(dice6);
-// 	console.log('errors ' + somethingElse);
+// 	console.log('errors: ' + somethingElse);
 // });
